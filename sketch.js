@@ -17,7 +17,7 @@ function setup() {
 }
 
 // A function to run when we get any errors and the results
-function gotResult(error, results) {
+let gotResult = (error, results) => {
   // Display error in the console
   if(error) {
     console.error(error);
@@ -30,5 +30,4 @@ function gotResult(error, results) {
     }
     createDiv(`Confidence: ${nf(results[0].confidence, 0, 2)}`);
   }
-
-}
+};
