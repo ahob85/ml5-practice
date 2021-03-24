@@ -3,6 +3,7 @@ let submitButton;
 
 let rSlider, gSlider, bSlider;
 let labelP;
+// "Loss" is another term for error
 let lossP;
 
 function setup() {
@@ -29,7 +30,9 @@ function setup() {
 function modelReady() {
   neuralNetwork.normalizeData();
   const trainingOptions = {
+    // "epochs" are how many traversals we'll make through the training data before the model is considered "trained"
     epochs: 20,
+    // "batchSize" indicates how many samples from the training data we'll use to train the model
     batchSize: 64
   }
   neuralNetwork.train(trainingOptions, whileTraining, finishedTraining);
