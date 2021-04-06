@@ -3,6 +3,7 @@
  // Initialize the Image Classifier method with MobileNet. A callback needs to be passed.
 
 let classifier;
+let analyzingP;
 
 // A variable to hold the image we want to classify.
 let img;
@@ -16,6 +17,7 @@ function setup() {
   createCanvas(400, 400);
   classifier.classify(img, gotResult);
   image(img, 0, 0);
+  analyzingP = createP("Analyzing, please wait...");
 }
 
 // A function to run when we get any errors and the results
@@ -26,6 +28,7 @@ let gotResult = (error, results) => {
   } else {
     // The results are in an array ordered by confidence.
     console.log(results);
+    analyzingP.remove();
     createDiv(`Label: ${results[0].label}`);
     if(results[0].label.includes("tiger")){
       createDiv("It's a god damn tiger!");
