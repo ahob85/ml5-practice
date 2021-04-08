@@ -31,7 +31,7 @@ let gotResult = (error, results) => {
     analyzingP.remove();
     createDiv(`Label: ${results[0].label}`);
     if(results[0].label.includes("tiger")){
-      createDiv("It's a god damn tiger!");
+      createDiv("It's a tiger!");
     }
     createDiv(`Confidence: ${nf(results[0].confidence, 0, 2)}`);
   }
